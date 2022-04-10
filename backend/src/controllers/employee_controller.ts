@@ -3,6 +3,7 @@ import { getManager } from 'typeorm'
 import { User } from '../entity/user_entity'
 import bcryptjs from 'bcryptjs'
 import { Parser } from 'json2csv'
+import { EmployeeValdiation } from '../validation/employee_validation'
 
 export const Employees=async(req:Request,res:Response)=>{
     const repository=getManager().getRepository(User)
@@ -18,6 +19,12 @@ export const Employees=async(req:Request,res:Response)=>{
 
 
 export const CreateEmployee=async(req:Request,res:Response)=>{
+    const data=req.body;
+    const {error}=EmployeeValdiation.validate(data);
+    if(error){
+        return res.status(400).send(error.details);
+    }
+
     const {team_id,role_id,...body}=req.body
     const hashedPassword=await bcryptjs.hash('xyz123FirstPass',10);//sets the default password for the added employees->can be changed later by them
     const repository=getManager().getRepository(User)

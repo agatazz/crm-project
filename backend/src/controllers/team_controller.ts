@@ -3,6 +3,7 @@ import { parse } from 'path';
 import { getManager } from 'typeorm'
 import { Role } from '../entity/role_entity';
 import { Team } from '../entity/team_entity';
+import { TeamValidation } from '../validation/team_validation';
 
 
 export const Teams=async(req:Request,res:Response)=>{
@@ -13,6 +14,12 @@ export const Teams=async(req:Request,res:Response)=>{
 
 
 export const CreateTeam=async(req:Request,res:Response)=>{
+    
+    const body=req.body;
+    const {error}=TeamValidation.validate(body);
+    if(error){
+        return res.status(400).send(error.details);
+    }
     const {name,department,manager,members,goals}=req.body;
     const repository=getManager().getRepository(Team);
     const team=await repository.save({
@@ -39,6 +46,11 @@ export const GetTeam=async(req:Request,res:Response)=>{
 }
 
 export const UpdateTeam=async(req:Request,res:Response)=>{
+    const body=req.body;
+    const {error}=TeamValidation.validate(body);
+    if(error){
+        return res.status(400).send(error.details);
+    }
     const {name,department,manager,members,goals}=req.body;
     const repository=getManager().getRepository(Team);
     const team=await repository.save({

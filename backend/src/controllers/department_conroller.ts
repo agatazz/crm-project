@@ -1,6 +1,7 @@
 import {Request,Response} from 'express'
 import { getManager } from 'typeorm'
 import { Department } from '../entity/department_entity'
+import { DepartmentValidation } from '../validation/department_validation'
 
 export const Departments=async(req:Request,res:Response)=>{
     const repository=getManager().getRepository(Department)
@@ -11,6 +12,11 @@ export const Departments=async(req:Request,res:Response)=>{
 }
 
 export const CreateDepartment=async(req:Request,res:Response)=>{
+    const body=req.body;
+    const {error}=DepartmentValidation.validate(body);
+    if(error){
+        return res.status(400).send(error.details);
+    }
 
     const {name,description,teams}=req.body
 
@@ -39,6 +45,11 @@ export const GetDepartment=async(req:Request,res:Response)=>{
 }
 
 export const UpdateDepartment=async(req:Request,res:Response)=>{
+    const body=req.body;
+    const {error}=DepartmentValidation.validate(body);
+    if(error){
+        return res.status(400).send(error.details);
+    }
 
     const {name,description,teams}=req.body
 

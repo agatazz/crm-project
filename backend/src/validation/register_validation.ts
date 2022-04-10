@@ -5,6 +5,5 @@ export const RegiserValdiation=Joi.object({
     last_name:Joi.string().required(),
     email:Joi.string().email().required(),
     password:Joi.string().required(),
-    password_confirm:Joi.string().required(),
-    // position:Joi.string().optional()
+    password_confirm:Joi.string().required()
 })
