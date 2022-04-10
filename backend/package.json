@@ -7,7 +7,9 @@
     "start": "nodemon src/index.ts",
     "roles:seed": "ts-node src/seeder/role_seeder.ts",
     "goals:seed": "ts-node src/seeder/goal_seeder.ts",
-    "department:seed": "ts-node src/seeder/department_seeder.ts"
+    "department:seed": "ts-node src/seeder/department_seeder.ts",
+    "team:seed": "ts-node src/seeder/team_seeder.ts",
+    "employees:seed": "ts-node src/seeder/employee_seeder.ts"
   },
   "author": "agataz",
   "license": "ISC",

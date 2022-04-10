@@ -1,5 +1,4 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
-import { Department } from "./department_entity";
 import { Role } from "./role_entity";
 import { Team } from "./team_entity";
 
@@ -29,16 +28,6 @@ export class User{
 
     @Column({ nullable: true})
     office:string;
-
-    // @ManyToOne(()=>Department)
-    // @JoinColumn({name:'department_id'})
-    // department:Department;
-    // @OneToMany(()=>Department,department=>department.id)
-    // department:Department[];
-
-    // @ManyToOne(()=>Team)
-    // @JoinColumn({name:'team_id'})
-    // team:Team;
 
     @ManyToOne(()=>Team)
     @JoinColumn({name:'team_id'})

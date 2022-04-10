@@ -1,7 +1,5 @@
 import {Request,Response} from 'express'
 import { getManager } from 'typeorm'
-import { User } from '../entity/user_entity'
-import bcryptjs from 'bcryptjs'
 import { Department } from '../entity/department_entity'
 
 export const Departments=async(req:Request,res:Response)=>{

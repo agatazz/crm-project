@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { AuthenticatedUser, Login, Logout, Register, Update, UpdatePassword } from "./controllers/auth_controller";
 import { CreateDepartment, DeleteDepartment, Departments, GetDepartment, UpdateDepartment } from "./controllers/department_conroller";
-import { CreateEmployee, DeleteEmployee, Employees, GetEmployee, UpdateEmployee } from "./controllers/employee_controller";
+import { CreateEmployee, DeleteEmployee, Employees, ExportUsersCSV, GetEmployee, UpdateEmployee } from "./controllers/employee_controller";
 import { CreateGoal, DeleteGoal, GetGoal, Goals, UpdateGoal } from "./controllers/goal_controller";
 import { Permissions } from "./controllers/permission_controller";
 import { CreateRole, DeleteRole, GetRole, Roles, UpdateRole } from "./controllers/role_controller";
@@ -28,7 +28,7 @@ export const routes=(router:Router)=>{
     router.get('/api/employees/:id',AuthMiddleware,PermissionMiddleware('user'),GetEmployee)
     router.put('/api/employees/:id',AuthMiddleware,PermissionMiddleware('user'),UpdateEmployee)
     router.delete('/api/employees/:id',AuthMiddleware,PermissionMiddleware('user'),DeleteEmployee)
-    // router.post('/api/employees/export',AuthMiddleware,Export)
+    router.post('/api/employees/export',AuthMiddleware,ExportUsersCSV)
 
     //routes for permissions
     router.get('/api/permissions',AuthMiddleware,Permissions)

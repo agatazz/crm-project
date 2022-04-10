@@ -1,6 +1,6 @@
-import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Team } from "./team_entity";
-import {User} from './user_entity'
+
 @Entity()
 export class Department{
     @PrimaryGeneratedColumn()

@@ -1,4 +1,3 @@
-import { access } from "fs";
 import {Request,Response}from 'express'
 import { User } from "../entity/user_entity";
 export const PermissionMiddleware=(access:string)=>{
