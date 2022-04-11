@@ -8,6 +8,18 @@ createConnection().then(async connection=>{
         members:[],
         goals:[]
         
+    });
+    await userRepository.save({
+        name:"second team",
+        members:[],
+        goals:[]
+        
+    });
+    await userRepository.save({
+        name:"third team",
+        members:[],
+        goals:[]
+        
     })
    
     process.exit(0);

@@ -23,11 +23,11 @@ export const routes=(router:Router)=>{
     router.put('/api/password',AuthMiddleware,UpdatePassword)
 
     //routes for the employees 
-    router.get('/api/employees',AuthMiddleware,PermissionMiddleware('user'), Employees)
-    router.post('/api/employees',AuthMiddleware,PermissionMiddleware('user'),CreateEmployee)
-    router.get('/api/employees/:id',AuthMiddleware,PermissionMiddleware('user'),GetEmployee)
-    router.put('/api/employees/:id',AuthMiddleware,PermissionMiddleware('user'),UpdateEmployee)
-    router.delete('/api/employees/:id',AuthMiddleware,PermissionMiddleware('user'),DeleteEmployee)
+    router.get('/api/employees',AuthMiddleware,PermissionMiddleware('users'), Employees)
+    router.post('/api/employees',AuthMiddleware,PermissionMiddleware('users'),CreateEmployee)
+    router.get('/api/employees/:id',AuthMiddleware,PermissionMiddleware('users'),GetEmployee)
+    router.put('/api/employees/:id',AuthMiddleware,PermissionMiddleware('users'),UpdateEmployee)
+    router.delete('/api/employees/:id',AuthMiddleware,PermissionMiddleware('users'),DeleteEmployee)
     router.post('/api/employees/export',AuthMiddleware,ExportUsersCSV)
 
     //routes for permissions
