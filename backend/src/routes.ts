@@ -6,8 +6,6 @@ import { CreateGoal, DeleteGoal, GetGoal, Goals, UpdateGoal } from "./controller
 import { Permissions } from "./controllers/permission_controller";
 import { CreateRole, DeleteRole, GetRole, Roles, UpdateRole } from "./controllers/role_controller";
 import { CreateTeam, DeleteTeam, GetTeam, Teams, UpdateTeam } from "./controllers/team_controller";
-import { Goal } from "./entity/goal_enitity";
-import { Team } from "./entity/team_entity";
 import { AuthMiddleware } from "./Middleware/auth_midleware";
 import { PermissionMiddleware } from "./Middleware/permission_middleware";
 

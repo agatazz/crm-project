@@ -25,8 +25,8 @@ export class Team{
     @ManyToMany(()=>Goal)
     @JoinTable({
         name:'team_goals',
-        joinColumn:{name:'team_id',referencedColumnName:'id'},//column from role that will be joined 
-        inverseJoinColumn:{name:'goals_id',referencedColumnName:'id'}//column from permission that will be joined
+        joinColumn:{name:'team_id',referencedColumnName:'id'},//column from team that will be joined 
+        inverseJoinColumn:{name:'goals_id',referencedColumnName:'id'}//column from goals that will be joined
     })
     goals:Goal[];
 
