@@ -1,4 +1,5 @@
 # crm-project
+A simple server side appliaction for managing departemnts,teams and employeees in an organisation. There are three type of user available with different permissions: Admin, Editor and Viewer. 
 
 ## Setup
 * add a .env file and assign a value to a variable SECRET_KEY
@@ -17,14 +18,15 @@ also seed the database with available seeders:
 * npm run employees:seed
 
 ## Funcionality
-### As Admin user you have:
-* Full User CRUD
-* Full Organisation CRUD(Departments, Teams, Goals)
-* Full Permissions and Roles CRUD 
+### As Admin user you:
+* Have full User CRUD
+* Have full Organisation CRUD(Departments, Teams, Goals)
+* Have full Permissions and Roles CRUD 
 
-### As Editor user you have:
-* Full User CRUD
-* Full Organisation CRUD(Departments, Teams, Goals)
+### As Editor user you:
+* Have full User CRUD
+* Have full Organisation CRUD(Departments, Teams, Goals)
+* Can only view the roles
 
 ### As Viewer user you :
 * Can view the Users and Organisation data
