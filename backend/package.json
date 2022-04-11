@@ -11,7 +11,7 @@
     "team:seed": "ts-node src/seeder/team_seeder.ts",
     "employees:seed": "ts-node src/seeder/employee_seeder.ts"
   },
-  "author": "agataz",
+  "author": "agatazz",
   "license": "ISC",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
