@@ -4,7 +4,7 @@ import { Role } from "../entity/role_entity";
 
 createConnection().then(async connection=>{
     const permissionRepository=getManager().getRepository(Permission);
-    const permission_types=['view_user','edit_user','view_roles','edit_roles','view_teams','edit_teams','view_goals','edit_goals','view_departments','edit_departments']//defines the types of the permissions 
+    const permission_types=['view_employees','edit_employees','view_roles','edit_roles','view_teams','edit_teams','view_goals','edit_goals','view_departments','edit_departments']//defines the types of the permissions 
     let permissions=[];//so it can later be used when assigning permissions to roles
     for(let i=0;i<permission_types.length;i++){
         permissions.push(await permissionRepository.save({
